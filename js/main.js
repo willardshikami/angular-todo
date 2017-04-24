@@ -1,6 +1,4 @@
-
-
-    angular.module('todoApp', [])
+  angular.module('todoApp', [])
       .controller('TodoListController', function() {
         var todoList = this;
         todoList.todos = [
@@ -20,12 +18,10 @@
           return count;
         };
      
-        todoList.archive = function() {
-          var oldTodos = todoList.todos;
-          todoList.todos = [];
-          angular.forEach(oldTodos, function(todo) {
-            if (!todo.done) todoList.todos.push(todo);
-          });
+        todoList.clearCompleted = function() {
+         todoList.todos = _-filter(todoList.todos, function(todos){
+           return !todos.done;
+         });
         };
       });
 
