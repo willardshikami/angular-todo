@@ -19,9 +19,11 @@
         };
      
         todoList.clearCompleted = function() {
-         todoList.todos = _-filter(todoList.todos, function(todos){
-           return !todos.done;
-         });
+          var oldTodos = todoList.todos;
+          todoList.todos = [];
+          angular.forEach(oldTodos, function(todo) {
+            if (!todo.done) todoList.todos.push(todo);
+          });
         };
       });
 
